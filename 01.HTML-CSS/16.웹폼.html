@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Form</title>
+</head>
+<body>
+    <h3>로그인 폼</h3>
+    <hr>
+    <form action="/user/login" method="get">
+        사용자 ID: <input type="text" name="uid" value="kim"><br>
+        패스워드: <input type="password" name="pwd" id=""><br>
+        <input type="submit" value="완료">
+    </form>
+    <hr>
+    <h3>Form과 Table</h3>
+    <hr>
+    <form action="/user/login" method="get">
+        <table>
+            <tr>
+                <td><label for="uid2">사용자 ID:</label></td>
+                <td><input type="text" name="uid2" id="uid2" placeholder="kim"></td>
+            </tr>
+            <tr>
+                <td>패스워드:</td>
+                <td><input type="password" name="pwd2"><br></td>
+            </tr>
+            <tr>
+                <td>텍스트 입력</td>
+                <td><textarea name="text" cols="80" rows="5"></textarea></td>
+            </tr> 
+            <tr>
+                <td>먹고싶은 것</td>
+                <td>
+                    <input type="radio" value="1" name="food">짜장면 
+                    <input type="radio" value="2" name="food" checked>짬뽕 
+                    <input type="radio" value="3" name="food">탕수육 
+                </td>
+            </tr>    
+            <tr>
+                <td>먹고싶은 것</td>
+                <td>
+                    <select name="china">
+                        <option value="1">짜장면</option>
+                        <option value="2" selected>짬뽕</option>
+                        <option value="3">탕수육</option>
+                    </select>
+                </td>
+            </tr>        
+            <tr>
+                <td colspan="2"><input type="submit" value="완료">
+                    <input type="reset" value="취소"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
