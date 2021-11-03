@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector</title>
+    <style>
+        h3, li {color: brown;}              /* 태그 이름 셀렉터 */
+        body.main {background: aliceblue;}  /* class 셀렉터 */
+        .warning {color: red;}
+        .warning.worst {font-size: 30px;}
+        #list {background: mistyrose;}      /* id 셀렉터 */
+        div > strong {color: dodgerblue;}   /* 자식 셀렉터 */
+        ul strong {color: dodgerblue;}      /* 자손 셀렉터 */
+        a:visited {color: green;}           /* 가상 클래스 */
+    </style>
+</head>
+<body class="main">
+    <h3>Web Programming</h3>
+    <hr>
+    <div> 
+        <div>2학기 <strong>학습 내용</strong></div>
+        <ul id="list">
+            <li>HTML5</li>
+            <li><strong>CSS3</strong></li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <div class="warning">60점 이하는 <span class="warning worst">F!</span></div>
+        <a href="https://www.naver.com">네이버</a>
+    </div>
+</body>
+</html>
