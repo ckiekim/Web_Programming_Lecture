@@ -3,6 +3,7 @@ package-lock.json
 tmp
 fonts
 database.json
+exercise.js
 
 # dependencies
 node_modules
