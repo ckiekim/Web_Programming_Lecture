@@ -6,3 +6,7 @@ let object = {
     }
 };
 object.print();
+
+object.name = 'banana';
+object.price = 2000;
+object.print();
