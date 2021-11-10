@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 생성</title>
+    <style>
+        body {background-color: linen; color: green;
+                margin-left: 40px; margin-right: 40px;}
+        h3 {text-align: center; color: darkred;}
+        hr {height: 5px; border: solid grey; background-color: grey;}
+        span {color: blue; font-size: 20px;}
+    </style>
+</head>
+<body>
+    <h3>Web Programming</h3>
+    기억하고 싶은 단어를 입력하세요.<br>
+    <form action="">
+        <input type="text" id="subject">
+        <button onclick="addItem(); return false;">등록</button>
+    </form>
+    <hr>
+    <ul id="list"></ul>
+
+    <script>
+        function addItem() {
+            let newItem = document.createElement('li');
+            let subject = document.getElementById('subject');
+            let textNode = document.createTextNode(subject.value);
+
+            newItem.appendChild(textNode);
+            document.getElementById('list').appendChild(newItem);
+            subject.value = '';
+
+            let items = document.querySelectorAll('li');
+            for (let item of items) {
+                item.addEventListener('click', function() {
+                    if (this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

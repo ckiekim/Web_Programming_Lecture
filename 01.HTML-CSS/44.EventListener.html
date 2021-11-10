@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+    <style>
+        body {background-color: linen; color: green;
+                margin-left: 40px; margin-right: 40px;}
+        h3 {text-align: center; color: darkred;}
+        hr {height: 5px; border: solid grey; background-color: grey;}
+        span {color: blue; font-size: 20px;}
+    </style>
+    <script>
+        var h3;
+        function init() {
+            h3 = document.getElementById('h3');
+            h3.onmouseover = show;
+            h3.onmouseout = hide;
+        }
+        function show() {
+            document.getElementById("fig").src = "img/Elvis.jpg"
+        }
+        function hide() {
+            document.getElementById("fig").src = ""
+        }
+    </script>
+</head>
+<body onload="init()">
+    <h3 id="h3">Elvis Presley</h3>
+    <hr>
+    <div><img id="fig" src=""></div>
+    <p class="pclass">He was an American singer and actor.</p>
+    <p class="pclass">In November 1956, he made his film debut in <span>Love Me Tender</span>.
+    He is often referred to as "<span>the King of Rock and Roll</span>".</p>
+</body>
+</html>
