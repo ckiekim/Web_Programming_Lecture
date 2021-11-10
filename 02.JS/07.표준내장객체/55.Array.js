@@ -27,7 +27,7 @@ console.log(numbers.slice(1,3), numbers);
 let array = ['dog', 'cat', 'lion'];
 console.log(array.sort(), array);       // 오름차순(ascending order)
 let numArray = [4, 2, 8, 5];
-numArray.sort(function(a, b) {
+numArray.sort(function(a, b) {          // 내림차순(descending order)
     return b - a;
-});
+});                    
 console.log(numArray)
