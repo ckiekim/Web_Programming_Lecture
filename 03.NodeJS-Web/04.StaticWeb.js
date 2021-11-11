@@ -3,6 +3,7 @@
 // Favorite Icon 추가
 const http = require('http');
 const url = require('url');
+const fs = require('fs');
 
 function list(items) {
     let html = '';
@@ -66,8 +67,12 @@ const app = http.createServer(function(req, res) {
             res.writeHead(200);             // It's OK
             res.end(html);
         }
-    } else if (pathname === '/favicon') {
-
+    } else if (pathname === '/favicon.ico') {
+        fs.readFile('nodejs.png', (error, data) => {
+            res.statusCode = 200;
+            res.setHeader('Content-type', 'image/png');
+            res.end(data);
+        });
     } else {
         res.writeHead(404);
         res.end('Not found!!!');
