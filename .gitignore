@@ -4,6 +4,7 @@ tmp
 fonts
 database.json
 exercise.js
+99_File_Web/
 
 # dependencies
 node_modules
