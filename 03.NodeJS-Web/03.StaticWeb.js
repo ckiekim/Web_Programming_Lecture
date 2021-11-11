@@ -6,7 +6,7 @@ const url = require('url');
 function list(items) {
     let html = '';
     for (let item of items) {
-        html += `<li><a href="/?${item}">${item}</a></li>\n`;
+        html += `<li><a href="/?title=${item}">${item}</a></li>\n`;
     }
     return html;
 }
