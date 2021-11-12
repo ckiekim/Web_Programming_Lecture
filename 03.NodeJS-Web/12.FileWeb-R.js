@@ -3,6 +3,12 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 
+const HOME_TITLE = 'Welcome to Web World';
+const HOME_DESC = `
+    웹(World Wide Web)의 개방성은 웹사이트나 온라인 애플리케이션을 제작하려는 사람들에게 많은 기회를
+    제공합니다. 하지만 그 사용 방법을 알아야 웹 기술을 잘 활용할 수 있습니다. 아래의 링크들을 확인하여
+    다양한 웹 기술을 배워보세요.`;
+
 function templateHtml(list, title, desc) {
     return `
         <!DOCTYPE html>
@@ -24,6 +30,16 @@ function templateHtml(list, title, desc) {
     `;
 }
 
+function templateList(filelist) {
+    let list = '<ul>\n';
+    for (let filename of filelist) {
+        let item = filename.substring(0, filename.length-4);
+        list += `<li><a href="/?title=${item}">${item}</a></li>\n`;
+    }
+    list += '</ul>\n';
+    return list;
+}
+
 const app = http.createServer(function(req, res) {
     let pathname = url.parse(req.url, true).pathname;
     let query = url.parse(req.url, true).query;
@@ -31,31 +47,16 @@ const app = http.createServer(function(req, res) {
 
     if (pathname === '/') {
         if (query.title === undefined) {
-            let title = 'Welcome to Web World';
-            let desc = `
-                웹(World Wide Web)의 개방성은 웹사이트나 온라인 애플리케이션을 제작하려는 사람들에게 많은 기회를
-                제공합니다. 하지만 그 사용 방법을 알아야 웹 기술을 잘 활용할 수 있습니다. 아래의 링크들을 확인하여
-                다양한 웹 기술을 배워보세요.`;
             fs.readdir('./data', (err, files) => {
-                let list = '<ul>\n';
-                for (let filename of files) {
-                    let item = filename.substring(0, filename.length-4);
-                    list += `<li><a href="/?title=${item}">${item}</a></li>\n`;
-                }
-                list += '</ul>\n';
-                let html = templateHtml(list, title, desc);
+                let list = templateList(files);
+                let html = templateHtml(list, HOME_TITLE, HOME_DESC);
                 res.writeHead(200);             
                 res.end(html);
             });
         } else {                            
             let title = query.title;
             fs.readdir('./data', (err, files) => {
-                let list = '<ul>\n';
-                for (let filename of files) {
-                    let item = filename.substring(0, filename.length-4);
-                    list += `<li><a href="/?title=${item}">${item}</a></li>\n`;
-                }
-                list += '</ul>\n';
+                let list = templateList(files);
                 fs.readFile(`./data/${title}.txt`, 'utf8', (error, desc) => {
                     let html = templateHtml(list, title, desc);
                     res.writeHead(200);             
