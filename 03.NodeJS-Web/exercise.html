@@ -17,11 +17,11 @@
     <a href="/"><button>홈으로</button></a>
     <a href="/create"><button>글쓰기</button></a>
     <hr>
-    <h2>글쓰기</h2>
-    <form action="/create_proc" method="post">
-        <p><input type="text" name="title" size="58" placeholder="제목"></p>
-        <p><textarea name="desc" cols="60" rows="5" placeholder="내용"></textarea></p>
-        <p><input type="submit" value="제출"></p>
+    <h2>글 삭제하기</h2>
+    <form action="/delete_proc" method="post">
+        <input type="hidden" name="title" value="title">
+        <p>HTML5 글을 삭제하시겠습니까?</p>
+        <p><input type="submit" value="확인"></p>
     </form>
 </body>
 </html>
