@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>JSX 기본 문법</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let name = '구름';
+        let imgUrl = 'http://placedog.net/400';
+
+        let component = <div>
+            <h1>{name} 님 안녕하세요?</h1>
+            <img src={imgUrl} />
+        </div>
+
+        let container = document.getElementById('root');
+        ReactDOM.render(component, container);
+    </script>
+</body>
+</html>

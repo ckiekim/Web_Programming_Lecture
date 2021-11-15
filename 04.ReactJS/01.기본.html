@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React 기본</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let component = <h1>리액트 기본</h1>
+        let container = document.getElementById('root');
+
+        ReactDOM.render(component, container);
+    </script>
+</body>
+</html>
