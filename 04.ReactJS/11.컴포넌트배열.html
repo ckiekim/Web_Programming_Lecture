@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>컴포넌트 배열</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            render() {
+                let list = [
+                    <li>사과</li>,
+                    <li>배</li>,
+                    <li>감</li>,
+                    <li>귤</li>
+                ];
+                return (
+                    <h1><ul>{list}</ul></h1>
+                );
+            }
+        }
+
+        let container = document.getElementById('root');
+        ReactDOM.render(<App />, container);
+    </script>
+</body>
+</html>

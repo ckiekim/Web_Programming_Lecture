@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>스타일 속성 지정</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { checked: false };
+                this.handleClick = this.handleClick.bind(this);
+            }
+            render() {
+                let textStyle = { color: this.state.checked ? 'blue' : 'red' };
+                let textStyle2 = { fontSize: this.state.checked ? 40 : 20 };
+                return (
+                    <div>
+                        <input type="checkbox" onClick={this.handleClick} />
+                        <h1 style={textStyle}>체크가 되었으면 파랑, 아니면 빨강</h1>
+                        <p style={textStyle2}>체크가 되었으면 큰글씨, 아니면 작은글씨</p>
+                    </div>
+                );
+            }
+            handleClick(e) {
+                this.setState({ checked: e.target.checked });
+            }
+        }
+
+        let container = document.getElementById('root');
+        ReactDOM.render(<App />, container);
+    </script>
+</body>
+</html>
