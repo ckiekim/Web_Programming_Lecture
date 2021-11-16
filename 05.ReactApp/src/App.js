@@ -105,7 +105,25 @@ class App extends Component {
         ></TOC>
         <Control
           onChangeMode={function (mode) {
-            this.setState({ mode });
+            if (mode === "delete") {
+              if (window.confirm("삭제하시겠습니까?")) {
+                let contents = [...this.state.contents];
+                let selectedContentId = this.state.selectedContentId;
+                for (let i = 0; i < contents.length; i++) {
+                  if (contents[i].id === selectedContentId) {
+                    if (selectedContentId === contents.length) {
+                      selectedContentId--;
+                    }
+                    contents.splice(i, 1);
+                    break;
+                  }
+                }
+                alert("삭제되었습니다.");
+                this.setState({ mode: "welcome", selectedContentId, contents });
+              }
+            } else {
+              this.setState({ mode });
+            }
           }.bind(this)}
         ></Control>
         {this.getContent()}
